@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"></li>
+        </ul>
+    </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto header" href="/">Air Monitoring</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-2 dual-collapse2">
+      <ul class="navbar-nav ml-auto" *ngIf="!auth.authenticated">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']">เข้าสู่ระบบ</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto" *ngIf="auth.authenticated">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/manager']"><i class="cui-cog"></i>จัดการ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="auth.signOut()">ออกจากระบบ</a>
+        </li>
+      </ul>
+    </div>
+</nav>

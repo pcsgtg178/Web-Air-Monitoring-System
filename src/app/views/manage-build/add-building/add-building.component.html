@@ -1,0 +1,38 @@
+<form #buildForm="ngForm" (ngSubmit)="onSubmit(buildForm)">
+    <div class="card">
+        <div class="card-header">
+        <h4>Add Build</h4>
+        </div>
+        <div class="card-body">
+        <input type="hidden" name="$key" #$key="ngModel"
+        [(ngModel)]="managerService.selectedBuild.$key">
+        <div class="form-group">
+            <label>ชื่อตึก Build Name</label>
+            <input class="form-control" name="Build_name" type="text" #Build_name="ngModel"
+            [(ngModel)]="managerService.selectedBuild.Build_name" placeholder="Build name" required>
+        </div>
+        <div class="form-group">
+            <label>พิกัด Latitude</label>
+            <input class="form-control" name="latitude" #Latitude="ngModel" type="text"
+              [(ngModel)]="managerService.selectedBuild.latitude" placeholder="latitude" size="9" maxlength="9" min="9">
+        </div>
+        <div class="form-group">
+        <label>พิกัด Longitude</label>
+        <input class="form-control" name="longitude" #longitude="ngModel" type="text"
+            [(ngModel)]="managerService.selectedBuild.longitude" placeholder="longitude" size="9" maxlength="9" min="9">
+        </div>
+        <div class="form-group">
+            <label>รายละเอียด Detail</label>
+            <textarea class="form-control" name="Detail" type="text" #Detail="ngModel"
+            [(ngModel)]="managerService.selectedBuild.Detail" placeholder="Detail">
+        </textarea>
+        </div>
+        </div>
+        <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-success" [disabled]="!buildForm.valid">
+            <i class="cui-pencil"></i>
+            Add...
+        </button>
+        </div>
+    </div>
+</form>

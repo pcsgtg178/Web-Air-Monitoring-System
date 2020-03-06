@@ -1,0 +1,104 @@
+<div class="row">
+        <div class="col-sm-12">
+                <div class="leafmap"
+                        leaflet 
+                        [leafletOptions]="options">
+                        <div *ngFor="let l of layers" [leafletLayer]="l"></div>
+                </div>
+        </div>
+</div>
+<div class="row" [formGroup]="sortSelect">
+        <div class="col-sm-12">
+                <div class="float-right">
+                        <select id="build" formControlName="build" name="build" class="form-control" (change)="onSelect()" ngModel="ICT">
+                                <option value="ICT">เลือกตึก/อาคาร</option>
+                                <option *ngFor="let build of buildList" [value]="build.$key">{{build.$key}}</option>
+                        </select>
+                </div>
+        </div>
+</div>
+<div class="row" *ngIf="checkValdata" style="margin-top: 13px;">
+        <div class="col-sm-4" *ngFor="let item of Rooms; let i=index">
+                <div (click)="SelectRoom(item.room)">
+                        <div class="top" *ngIf="checkData && Valdata[i] != undefined">
+                                {{item.room}}  <small class="float-right">{{item.adr}}</small> 
+                        </div>
+                        <div class="bottom" *ngIf="Valdata[i].pm10p0 < 51" style="background-color:#4296fe">
+                                <div class="float-left">
+                                        <img src="./assets/status/pm/black01.png">
+                                        <span style="font-size: auto;"> ดีมาก</span>    
+                                </div>
+                                <div class="float-right">
+                                        <div class="border">
+                                                PM<sub>2.5</sub> | {{Valdata[i].pm2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>
+                                        <div class="border">
+                                                PM<sub>10.0</sub> | {{Valdata[i].pm10p0 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>        
+                                </div>      
+                        </div>
+                        <div class="bottom" *ngIf="Valdata[i].pm10p0 >= 51 && Valdata[i].pm10p0 < 101" style="background-color:#59f746">
+                                <div class="float-left">
+                                        <img src="./assets/status/pm/black02.png" width="60" height="60">
+                                        ดี      
+                                </div>
+                                <div class="float-right">
+                                        <div class="border">
+                                                PM<sub>2.5</sub> | {{Valdata[i].pm2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>
+                                        <div class="border">
+                                                PM<sub>10.0</sub> | {{Valdata[i].pm10p0 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>        
+                                </div>  
+                        </div>
+                        <div class="bottom" *ngIf="Valdata[i].pm10p0 >= 101 && Valdata[i].pm10p0 < 151" style="background-color:#fee302">
+                                <div class="float-left">        
+                                        <img src="./assets/status/pm/black03.png" width="60" height="60">
+                                        ปานกลาง
+                                </div>
+                                <div class="float-right">
+                                        <div class="border">
+                                                PM<sub>2.5</sub> | {{Valdata[i].pm2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>
+                                        <div class="border">
+                                                PM<sub>10.0</sub> | {{Valdata[i].pm10p0 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>        
+                                </div>      
+                        </div>
+                        <div class="bottom" *ngIf="Valdata[i].pm10p0 >= 151 && Valdata[i].pm10p0 < 201" style="background-color:#ffa366">
+                                <div class="float-left">        
+                                        <img src="./assets/status/pm/black04.png" width="60" height="60">
+                                        แย่
+                                </div>
+                                <div class="float-right">
+                                        <div class="border">
+                                                PM<sub>2.5</sub> | {{Valdata[i].pm2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>
+                                        <div class="border">
+                                                PM<sub>10.0</sub> | {{Valdata[i].pm10p0 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>        
+                                </div>   
+                        </div>
+                        <div class="bottom" *ngIf="Valdata[i].pm10p0 >= 201" style="background-color:#fc0001">
+                                <div class="float-left">         
+                                        <img src="./assets/status/pm/black05.png" width="60" height="60">
+                                        แย่มาก
+                                </div>
+                                <div class="float-right">
+                                        <div class="border">
+                                                PM<sub>2.5</sub> | {{Valdata[i].pm2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>
+                                        <div class="border">
+                                                PM<sub>10.0</sub> | {{Valdata[i].pm10p0 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+                                        </div>        
+                                </div>   
+                        </div>    
+                </div>
+                             
+        </div>  
+</div>
+
+        
+
+
+

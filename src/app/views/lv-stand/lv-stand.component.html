@@ -1,0 +1,106 @@
+<div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card-group">
+          <div class="card p-4">
+            <div class="card-body">
+              <form (ngSubmit)="setLev()">
+                <div class="form-group">
+                  <h1>ตั้งระดับค่ามาตรฐาน</h1>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputFirstName">ระดับที่ 1 Start lev1</label>
+                        <input type="Number"
+                          class="form-control" placeholder="Start lev1..."
+                          required [(ngModel)]="lev1_st" name="lev1_st">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputLastName">ระดับที่ 1 End lev1</label>
+                        <input type="Number"
+                          class="form-control" placeholder="End lev1..." id="item"
+                          required [(ngModel)]="lev1_en" name="lev1_en">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputEmail">ระดับที่ 2 Start lev2</label>
+                        <input type="Number"
+                          class="form-control" placeholder="Start lev2..."
+                          required [(ngModel)]="lev2_st" name="lev2_st">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputWebsite">ระดับที่ 2 End lev2</label>
+                        <input type="Number"
+                          class="form-control" placeholder="End lev2..."
+                          required [(ngModel)]="lev2_en" name="lev2_en">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputEmail">ระดับที่ 3 Start lev3</label>
+                        <input type="Number"
+                          class="form-control" placeholder="Start lev3..."
+                          required [(ngModel)]="lev3_st" name="lev3_st">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputWebsite">ระดับที่ 3 End lev3</label>
+                        <input type="Number"
+                          class="form-control" placeholder="End lev3..."
+                          required [(ngModel)]="lev3_en" name="lev3_en">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputEmail">ระดับที่ 4 Start lev4</label>
+                        <input type="Number"
+                          class="form-control" placeholder="Start lev4..."
+                          required [(ngModel)]="lev4_st" name="lev4_st">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputWebsite">ระดับที่ 4 End lev4</label>
+                        <input type="Number"
+                          class="form-control" placeholder="End lev4..."
+                          required [(ngModel)]="lev4_en" name="lev4_en">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputEmail">ระดับที่ 5 Start lev5</label>
+                        <input type="Number"
+                          class="form-control" placeholder="Start lev5..."
+                          required [(ngModel)]="lev5_st" name="lev5_st">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputWebsite">ระดับที่ 5 End lev5</label>
+                        <input type="Number"
+                          class="form-control" placeholder="End lev5..."
+                          required [(ngModel)]="lev5_en" name="lev5_en">
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-sm btn-block">ตั้งค่า</button>
+                </div>  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

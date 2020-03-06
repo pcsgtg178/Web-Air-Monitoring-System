@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    <h4>All Device</h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th scope="col">ตึก/อาคาร</th>
+            <th scope="col">เลขห้อง</th>
+            <th scope="col">รายละเอียด</th>
+            <th scope="col">ถอนการติดตั้ง</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let build of roomList">
+            <td> {{build.Build_name}} </td>
+            <td> {{build.$key}} </td>
+            <td> {{build.Address}} </td>
+            <td>
+              <a class="cui-trash" (click)="onDelete(build.Build_name, build.Room_number)">
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

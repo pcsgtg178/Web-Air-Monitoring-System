@@ -1,0 +1,66 @@
+.element{
+    border: 1px solid black;
+}
+.stoke{
+    text-align: center;
+    margin: 5px;
+    padding: 5px;    
+}
+.border{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius:  12px;
+    text-align: center;
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+    width: 48%;
+}
+.img-status-pm{
+    margin: 10px;
+    padding: 5px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 6px;
+    padding: 20px;
+}
+
+.grid-item {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(224, 222, 219);
+    text-align: center;
+    padding: auto;
+    font-size: 26px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 80;
+}
+
+.item1 {
+    grid-column: 1 / span 3 ;
+    grid-row: 1;
+    padding: 25px;
+}
+
+.item2 {
+    grid-column: 4;
+    grid-row: 1 / span 3;
+    padding-top: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 60px;
+}
+
+.item3 {
+    grid-column: 1 / span 3 ;
+    grid-row: 3;
+    padding: 10px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}

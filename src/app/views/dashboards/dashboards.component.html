@@ -1,0 +1,157 @@
+
+<!-- ---------------------------------card--------------------------------------- -->
+<div class="card" *ngFor="let data of listSensor">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="grid-container">
+          <div class="grid-item item1" *ngIf="data.PM10p0 < 51" style="background-color:#4296fe">
+            <div class="stoke">
+                <img src="./assets/status/pm/black01.png" width="80" height="80">
+                <br>ดีมาก
+            </div>
+            <div class="border float-left">
+              PM<sub>2.5</sub> | {{data.PM2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+            <div class="border float-right">
+              PM<sub>10.0</sub> | {{data.PM10p0 | number:'1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+          </div>
+          <div class="grid-item item1" *ngIf="data.PM10p0 >= 51 && data.PM10p0 < 101" style="background-color:#59f746">
+            <div class="stoke">
+                <img src="./assets/status/pm/black02.png" width="80" height="80">
+                <br>ดี
+            </div>
+            <div class="border float-left">
+              PM<sub>2.5</sub> | {{data.PM2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+            <div class="border float-right">
+              PM<sub>10.0</sub> | {{data.PM10p0 | number:'1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+          </div>
+          <div class="grid-item item1" *ngIf="data.PM10p0 >= 101 && data.PM10p0 < 151" style="background-color:#fee302">
+            <div class="stoke">
+                <img src="./assets/status/pm/black03.png" width="80" height="80">
+                <br>ปานกลาง
+            </div>
+            <div class="border float-left">
+              PM<sub>2.5</sub> | {{data.PM2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+            <div class="border float-right">
+              PM<sub>10.0</sub> | {{data.PM10p0 | number:'1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+          </div>
+          <div class="grid-item item1" *ngIf="data.PM10p0 >= 151 && data.PM10p0 < 201" style="background-color:#ffa366">
+            <div class="stoke">
+                <img src="./assets/status/pm/black04.png" width="80" height="80">
+                <br>แย่
+            </div>
+            <div class="border float-left">
+              PM<sub>2.5</sub> | {{data.PM2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+            <div class="border float-right">
+              PM<sub>10.0</sub> | {{data.PM10p0 | number:'1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+          </div>
+          <div class="grid-item item1" *ngIf="data.PM10p0 >= 201" style="background-color:#fc0001">
+            <div class="stoke">
+                <img src="./assets/status/pm/black05.png" width="80" height="80">
+                <br>แย่มาก
+            </div>
+            <div class="border float-left">
+              PM<sub>2.5</sub> | {{data.PM2p5 | number: '1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+            <div class="border float-right">
+              PM<sub>10.0</sub> | {{data.PM10p0 | number:'1.2-2'}} &mu;g/m<sup>3</sup>
+            </div>
+          </div>
+
+          <div class="grid-item item2">
+            <p style="font-size:24px;"> <i class="fa fa-thermometer-4 float-left" style="font-size:48px; width:50px; height:50px;"></i> 
+              Temperature 
+              <br>{{data.Temperature}} &ordm;C
+            </p>
+            <p style="font-size:24px;"> <img class="float-left" src="../../../assets/status/humidity/raindrop.png" width="50" height="50"> 
+              Humidity 
+              <br>{{data.Humidity}} %
+            </p>
+            <p> <i class="fa fa-map-marker" style="font-size:48px;"></i> {{roomNumber}} </p>
+          </div>
+          <div class="grid-item item3">
+            วันนี้ <i class="fa fa-calendar"></i> {{data.At_Date}}
+            <br>
+            เวลา <i class="fa fa-clock-o"></i> {{data.At_Time}} น.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!-- ---------------------------------กราฟ--------------------------------------- -->
+<div class="card">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="btn-group btn-group-toggle float-right mr-12" data-toggle="buttons">
+        <label class="btn btn-outline-secondary btn-sm" id="option1" (click)="threeHr()">3 ชั่วโมง</label>
+        <label class="btn btn-outline-secondary btn-sm" id="option2" (click)="sixHr()">6 ชั่วโมง</label>
+        <label class="btn btn-outline-secondary btn-sm" id="option3" (click)="oneHr()">คืนค่า</label>
+      </div>
+    </div>
+  </div>
+      <div class="chart-wrapper" style="width: 100%; height: 50%;">
+          <!-- ขนาดความกว้างและสูงของแผนภูมิ-->
+          <canvas id="lineChartpm"></canvas>
+          <!-- ใช้ id ในการอ้างอิงเพื่อนำแสงผลที่ได้ทำการสร้างไว้ในหน้า app.component.ts -->
+        </div>
+        <br>
+        <hr>
+        <div class="chart-wrapper" style="width: 100%; height: 50%;">
+          <!-- ขนาดความกว้างและสูงของแผนภูมิ-->
+          <canvas id="lineChartweather"></canvas>
+          <!-- ใช้ id ในการอ้างอิงเพื่อนำแสงผลที่ได้ทำการสร้างไว้ในหน้า app.component.ts -->
+        </div>
+</div><br>
+<!-- ---------------------------------ตาราง--------------------------------------- -->
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="sortTable" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-12">
+                <label class="col-form-label" for="start_date">วันที่เริ่มต้น Start Date</label>
+                <input class="form-control" id="start_date" type="date" formControlName="start_date" name="start_date" placeholder="date">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-12">
+                <label class="col-form-label" for="end_date">วันที่สิ้นสุด End Date</label>
+                <input class="form-control" id="end_date" type="date" formControlName="end_date" name="end_date" placeholder="date">
+              </div>
+            </div>
+          </div>  
+        </div> 
+        <div class="form-group">
+          <!-- <button type="button" class="btn btn-sm btn-pill btn-secondary float-right">กราฟ Graph</button> -->
+          <button type="submit" class="btn btn-sm btn-pill btn-info float-right">ตาราง Table</button> 
+        </div>
+    </form>
+  </div> 
+</div>
+  <!-------------------------------- Tables -------------------------------------------------------------------->
+  <div class="card" *ngIf="sortData"> <!--*ngIf="sortData"-->
+    <div class="card-header">
+        <button type="submit" class="btn btn-sm btn-pill btn-success float-right" (click)="exportAsXLSX()">ไฟล์ Excel</button> 
+      <h4>ตารางแสดงข้อมูลย้อนหลัง</h4>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <ng2-smart-table class="text-center" [settings]="settings" [source]="source"></ng2-smart-table>
+      </div>
+    </div>
+  </div>
+
+  
